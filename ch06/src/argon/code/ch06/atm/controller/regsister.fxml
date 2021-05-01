@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="alertPane" prefHeight="400.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/15.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="argon.code.ch06.atm.controller.Register">
+   <children>
+      <Label layoutX="231.0" layoutY="61.0" text="账号注册">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="102.0" layoutY="183.0" text="账号" />
+      <Label layoutX="102.0" layoutY="117.0" text="姓名" />
+      <Label layoutX="102.0" layoutY="255.0" text="性别" />
+      <TextField fx:id="registerID" layoutX="188.0" layoutY="179.0" promptText="请使用英文字母和数字" />
+      <TextField fx:id="registerName" layoutX="188.0" layoutY="113.0" promptText="请输入您的姓名" />
+      <ComboBox fx:id="genderBox" layoutX="188.0" layoutY="251.0" prefHeight="23.0" prefWidth="59.0" promptText="男" visibleRowCount="2" />
+      <Button fx:id="registerConfirm" layoutX="231.0" layoutY="309.0" mnemonicParsing="false" onAction="#confirm" prefHeight="37.0" prefWidth="86.0" text="注册" />
+      <Label layoutX="102.0" layoutY="212.0" text="密码" />
+      <PasswordField fx:id="registerPassword" layoutX="188.0" layoutY="208.0" promptText="请勿泄露给其他人" />
+      <TextField fx:id="registerCredit" layoutX="188.0" layoutY="147.0" promptText="方便密码找回" />
+      <ComboBox fx:id="creditBox" onAction="#getCredit" layoutX="83.0" layoutY="147.0" prefHeight="23.0" prefWidth="86.0" promptText="证件号" />
+   </children>
+</AnchorPane>
