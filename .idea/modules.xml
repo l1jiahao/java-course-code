@@ -9,6 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/ch05/ch05.iml" filepath="$PROJECT_DIR$/ch05/ch05.iml" />
       <module fileurl="file://$PROJECT_DIR$/ch06/ch06.iml" filepath="$PROJECT_DIR$/ch06/ch06.iml" />
       <module fileurl="file://$PROJECT_DIR$/course.iml" filepath="$PROJECT_DIR$/course.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gittestmodule/gittestmodule.iml" filepath="$PROJECT_DIR$/gittestmodule/gittestmodule.iml" />
       <module fileurl="file://$PROJECT_DIR$/jna/jna.iml" filepath="$PROJECT_DIR$/jna/jna.iml" />
       <module fileurl="file://$PROJECT_DIR$/test03/test03.iml" filepath="$PROJECT_DIR$/test03/test03.iml" />
       <module fileurl="file://$PROJECT_DIR$/test2/test2.iml" filepath="$PROJECT_DIR$/test2/test2.iml" />
