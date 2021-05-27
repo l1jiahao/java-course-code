@@ -4,6 +4,7 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/jna/pom.xml" />
+        <option value="$PROJECT_DIR$/jantest/pom.xml" />
       </list>
     </option>
   </component>

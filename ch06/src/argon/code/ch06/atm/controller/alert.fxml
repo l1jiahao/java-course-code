@@ -15,16 +15,15 @@
             <Font size="23.0" />
          </font>
       </Label>
-      <Label layoutX="102.0" layoutY="183.0" text="账号" />
-      <Label layoutX="102.0" visible="false" layoutY="117.0" text="姓名" />
-      <Label layoutX="102.0" visible="false" layoutY="255.0" text="性别" />
-      <TextField fx:id="registerID" layoutX="188.0" layoutY="179.0" promptText="请使用英文字母和数字" />
-      <TextField fx:id="registerName" visible="false" layoutX="188.0" layoutY="113.0" promptText="请输入您的姓名" />
-      <ComboBox fx:id="genderBox" visible="false" layoutX="188.0" layoutY="251.0" prefHeight="23.0" prefWidth="59.0" promptText="男" visibleRowCount="2" />
-      <Button fx:id="registerConfirm" layoutX="231.0" layoutY="309.0" mnemonicParsing="false" onAction="#confirm" prefHeight="37.0" prefWidth="86.0" text="修改" />
+      <Label layoutX="102.0" layoutY="117.0" text="姓名" visible="false" />
+      <Label layoutX="102.0" layoutY="255.0" text="性别" visible="false" />
+      <TextField fx:id="registerName" layoutX="188.0" layoutY="113.0" promptText="请输入您的姓名" visible="false" />
+      <ComboBox fx:id="genderBox" layoutX="188.0" layoutY="251.0" prefHeight="23.0" prefWidth="59.0" promptText="男" visible="false" visibleRowCount="2" />
+      <Button fx:id="registerConfirm" layoutX="188.0" layoutY="309.0" mnemonicParsing="false" onAction="#confirm" prefHeight="37.0" prefWidth="86.0" text="修改" />
       <Label layoutX="102.0" layoutY="212.0" text="密码" />
       <PasswordField fx:id="registerPassword" layoutX="188.0" layoutY="208.0" promptText="请勿泄露给其他人" />
       <TextField fx:id="registerCredit" layoutX="188.0" layoutY="147.0" promptText="方便密码找回" />
       <ComboBox fx:id="creditBox" layoutX="83.0" layoutY="147.0" onAction="#getCredit" prefHeight="23.0" prefWidth="86.0" promptText="证件号" />
+      <Button fx:id="exitBtn" layoutX="306.0" layoutY="309.0" mnemonicParsing="false" onAction="#exit" prefHeight="37.0" prefWidth="86.0" text="退出" />
    </children>
 </AnchorPane>

@@ -64,6 +64,10 @@ public class guessRule {
         var rand=new Random();
         puzzlecontent=puzzleSet()[rand.nextInt(puzzleNum)];
     }
+
+    /*
+    * 用来计算胜率
+    * */
     public String winRate(){//胜率
         return "总共答题次数："+totalCount+"\n\n"+"正确次数："+winCount
                 +"\n\n"+String.format("正确率是：%.2f",(double)winCount/totalCount*100)+"%";
@@ -84,6 +88,9 @@ public class guessRule {
     public void setWinCount(int winCount) {
         this.winCount = winCount;
     }
+    /*
+    * 将所得到的单词设置成合适的谜面的类型 随机将几个字母置为*
+    * */
     public String showPuzzle(){
         var array =puzzlecontent.toCharArray();
         var random=new Random();

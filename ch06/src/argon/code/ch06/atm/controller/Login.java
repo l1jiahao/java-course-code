@@ -2,6 +2,7 @@ package argon.code.ch06.atm.controller;
 
 import argon.code.ch06.atm.entity.ATM;
 import argon.code.ch06.atm.entity.Account;
+import argon.code.ch06.atm.stageutils.StageUtils;
 import argon.code.ch06.atm.view.DialogOutput;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -30,6 +31,7 @@ public class Login {
     private void loginIn()throws Exception{
         var atm=ATM.getInstance();
         if (atm.checkAccount(loginID.getText(),loginPassword.getText())){
+            StageUtils.getInstance().getStages().get("Login").close();
             AnchorPane root= FXMLLoader.load(getClass().getResource("atmsystem.fxml"));
             var scene=new Scene(root,600,400);
             var stage=new Stage();
@@ -37,10 +39,12 @@ public class Login {
             stage.getIcons().add(new Image("argon/code/ch06/atm/argon.jpg"));
             stage.setTitle("ArGon-ATM系统");
             stage.show();
+            StageUtils.getInstance().getStages().put("LoginIn",stage);
         }else DialogOutput.outputInfo("抱歉","账号或者用户名错误","知道了");
     }
     @FXML
     private void register()throws Exception{
+        StageUtils.stageUtils.getStages().get("Login").close();
         AnchorPane root= FXMLLoader.load(getClass().getResource("regsister.fxml"));
         var scene=new Scene(root,600,400);
         var stage=new Stage();
@@ -48,6 +52,7 @@ public class Login {
         stage.getIcons().add(new Image("argon/code/ch06/atm/argon.jpg"));
         stage.setTitle("ArGon-注册系统");
         stage.show();
+        StageUtils.getInstance().getStages().put("Register",stage);
     }
     @FXML
     private void forget(){

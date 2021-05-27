@@ -2,6 +2,7 @@ package argon.code.ch06.atm.controller;
 
 import argon.code.ch06.atm.entity.ATM;
 import argon.code.ch06.atm.entity.Account;
+import argon.code.ch06.atm.stageutils.StageUtils;
 import argon.code.ch06.atm.view.DialogOutput;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -29,6 +30,8 @@ public class Alert {
     @FXML
     private Button registerConfirm;
     @FXML
+    private Button exitBtn;
+    @FXML
     private PasswordField registerPassword;
     @FXML
     private AnchorPane registerPane;
@@ -37,11 +40,6 @@ public class Alert {
         genderBox.getItems().addAll("女","男");
         creditBox.getItems().addAll("校园卡","身份证","暗号");
     }
-/*    @FXML
-    private void getGender(){
-        if (genderBox.getValue()!=null && genderBox.getValue().equals("女"))
-            gender=true;
-    }*/
     @FXML void getCredit(){
         switch ((String) creditBox.getValue()){
             case "校园卡"->registerCredit.setPromptText("请输入11位校园卡号");
@@ -51,10 +49,6 @@ public class Alert {
                 break;
             }
         }
-    }
-    @FXML
-    private void getID(){
-        ID=registerID.getText();
     }
     @FXML
     private void getName(){
@@ -68,8 +62,13 @@ public class Alert {
     private void confirm(){
         Account account=ATM.getInstance().getCurrentaccount();
         account.setCredit(registerCredit.getText());
-        account.setID(ID);
         account.setPassword(Password);
         DialogOutput.outputInfo("恭喜你","修改成功","完成");
+        exit();
+    }
+    @FXML
+    private void exit(){
+        StageUtils.getInstance().getStages().get("Alter").close();
+        StageUtils.getInstance().getStages().get("LoginIn").show();
     }
 }

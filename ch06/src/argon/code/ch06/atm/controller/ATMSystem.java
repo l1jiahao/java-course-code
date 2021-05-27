@@ -2,9 +2,11 @@ package argon.code.ch06.atm.controller;
 
 import argon.code.ch06.atm.entity.ATM;
 import argon.code.ch06.atm.entity.Account;
+import argon.code.ch06.atm.stageutils.StageUtils;
 import argon.code.ch06.atm.view.DialogOutput;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -12,7 +14,10 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class ATMSystem {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class ATMSystem implements Initializable {
     @FXML
     private Button depositBtn;
     @FXML
@@ -21,6 +26,13 @@ public class ATMSystem {
     private Button transferBtn;
     @FXML
     private Label outPutInfo;
+    @FXML
+    private Button exitBtn;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        outPutInfo.setText(ATM.getInstance().getCurrentaccount().toString());
+    }
     @FXML
     private void deposit(){
         double money;
@@ -44,9 +56,9 @@ public class ATMSystem {
         String targetid=DialogOutput.inputInfo("转账","请输入对方账号");
         for (Account account:ATM.getInstance().getAccounts()){
             if(account.getID().equals(targetid)){
+                flag++;
                 double money=Double.valueOf(DialogOutput.inputInfo("转账","请输入转账金额"));
                 if(ATM.getInstance().transferMoney(account,money)){
-                    flag++;
                 }else {
                     DialogOutput.outputInfo("抱歉","余额不足","知道了");
                     break;
@@ -59,6 +71,7 @@ public class ATMSystem {
         }
     @FXML
     private void alert()throws Exception{
+        StageUtils.getInstance().getStages().get("LoginIn").close();
         AnchorPane root= FXMLLoader.load(getClass().getResource("alert.fxml"));
         var scene=new Scene(root,600,400);
         var stage=new Stage();
@@ -66,22 +79,19 @@ public class ATMSystem {
         stage.getIcons().add(new Image("argon/code/ch06/atm/argon.jpg"));
         stage.setTitle("ArGon-修改系统");
         stage.show();
+        StageUtils.getInstance().getStages().put("Alter",stage);
 
     }
-/*    @FXML
-    private void alert()throws Exception{
-        AnchorPane root= FXMLLoader.load(getClass().getResource("alert.fxml"));
-        var scene=new Scene(root,600,400);
-        var stage=new Stage();
-        stage.setScene(scene);
-        stage.setTitle("ArGon-修改系统");
-        stage.show();
-
-    }*/
     @FXML
     private void tradeHistory(){
         outPutInfo.setText(ATM.getInstance().getCurrentaccount().getHistory().toString());
     }
+    @FXML
+    private void exit(){
+        StageUtils.getInstance().getStages().get("LoginIn").close();
+        StageUtils.getInstance().getStages().get("Login").show();
+    }
+
 }
 
 

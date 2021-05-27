@@ -27,6 +27,9 @@ public class guessControl implements Initializable {
     private Button guessButton;
     @FXML
     private Label scoreLabel;
+    /*
+    * 利用initialize来将label初始化置成一个谜面
+    * */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         labelTxt.setContentDisplay(ContentDisplay.CENTER);
@@ -71,6 +74,7 @@ public class guessControl implements Initializable {
         changePuzzle();
         guessButton.setTextFill(Color.BLACK);
     }
+
     public void rightNotice(){
         var alert =new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("恭喜你！");

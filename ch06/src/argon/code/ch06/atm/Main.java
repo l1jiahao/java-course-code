@@ -1,5 +1,6 @@
 package argon.code.ch06.atm;
 
+import argon.code.ch06.atm.stageutils.StageUtils;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -21,5 +22,6 @@ public class Main extends Application {
         primaryStage.getIcons().add(new Image("argon/code/ch06/atm/argon.jpg"));
         primaryStage.setTitle("ArGon-ATM-Ver2.0");
         primaryStage.show();
+        StageUtils.getInstance().getStages().put("Login",primaryStage);
     }
 }

@@ -2,6 +2,7 @@ package argon.code.ch06.atm.controller;
 
 import argon.code.ch06.atm.entity.ATM;
 import argon.code.ch06.atm.entity.Account;
+import argon.code.ch06.atm.stageutils.StageUtils;
 import argon.code.ch06.atm.view.DialogOutput;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -82,6 +83,9 @@ public class Register {
         registerCredit.clear();
         ATM.getInstance().register(ID,Name,gender,Password,credit);
         DialogOutput.outputInfo("恭喜你","注册成功","完成");
+        StageUtils.getInstance().getStages().get("Register").close();
+        StageUtils.getInstance().getStages().get("Login").show();
+
     }
 
 }
